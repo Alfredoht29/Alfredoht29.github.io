@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-i18n/1.2.2/jquery.i18n.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.min.js"></script>
+    <title>Portfolio</title>
+</head>
+
+<body class="bg-stone-950 p-2">
+    <div class="container mx-auto">
+        <h1 class="text-2xl font-bold text-white playfair-display-x" data-i18n="header"></h1>
+        <div id="carousel" class="flex gap-8 flex-wrap justify-center my-20">
+            <div class="flex flex-col gap-4 w-72">
+                <div class="w-full">
+                    <video class="w-full h-64 object-cover" controls>
+                        <source src="resources/project1.mov" type="video/mp4">
+                    </video>
+                </div>
+                <h2 class="text-lg font-semibold text-white" data-i18n="project1Title"></h2>
+                <p class="text-gray-400" data-i18n="project1Technologies"></p>
+            </div>
+
+            <div class="flex flex-col gap-4 w-72">
+                <div class="w-full">
+                    <video class="w-full h-64 object-cover" controls>
+                        <source src="resources/project2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h2 class="text-lg font-semibold text-white" data-i18n="project2Title"></h2>
+                <p class="text-gray-400" data-i18n="project2Technologies"></p>
+            </div>
+
+            <div class="flex flex-col gap-4 w-72">
+                <div class="w-full">
+                    <video class="w-full h-64 object-cover" controls>
+                        <source src="resources/project3.mov" type="video/mp4">
+                    </video>
+                </div>
+                <h2 class="text-lg font-semibold text-white" data-i18n="project3Title"></h2>
+                <p class="text-gray-400" data-i18n="project3Technologies"></p>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="flex flex-col gap-4 w-72">
+                <div class="w-full">
+                    <video class="w-full h-64 object-cover" controls>
+                        <source src="resources/project4.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <h2 class="text-lg font-semibold text-white" data-i18n="project4Title"></h2>
+                <p class="text-gray-400" data-i18n="project4Technologies"></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex justify-center mt-4">
+        <button id="en" class="px-4 py-2 bg-yellowcustom text-white playfair-display-x">English</button>
+        <button id="es" class="px-4 py-2 bg-yellowcustom text-white ml-2 playfair-display-x">Español</button>
+    </div>
+
+    <script>
+        const translations = {
+            "en": {
+                "header": "Emilio Alfredo Perez Villa",
+                "project1Title": "Detiqueta Project",
+                "project1Technologies": "In development, it is a digital marketing project to position restaurant promotions, developed with Next.js and Tailwind with DaisyUI.",
+                "project2Title": "Detiqueta Mobile Project",
+                "project2Technologies": "Mockup made in Native Swift with SwiftUI.",
+                "project3Title": "MenuI18 Project",
+                "project3Technologies": "Multilingual QR menu made with Laravel, Alpine.js, and Tailwind. It features account verification, localization in Laravel with i18n, and a mobile device preview.",
+                "project4Title": "News App Project",
+                "project4Technologies": "This project is a news app that consumes an external API with StoreKit2 and Core ML to filter words considered positive and negative."
+            },
+            "es": {
+                "header": "Emilio Alfredo Perez Villa",
+                "project1Title": "Proyecto Detiqueta",
+                "project1Technologies": "En desarrollo , es un proyecto de marketing digital para posicionar promociones de restaurantes esta desarrollado con Nextjs y Tailwind con DaisyUi",
+                "project2Title": "Proyecto Detiqueta Mobile",
+                "project2Technologies": "Maqueta hecha en Swift Nativo con Swiftui",
+                "project3Title": "Proyecto MenuI18",
+                "project3Technologies": "Menu qr multidioma hecho con laravel alpinejs y tailwind, tiene verificacion de cuenta y localizacion en laravel con i18n y previsualizador de dipoitivo movil",
+                "project4Title": "Proyecto News App",
+                "project4Technologies": "Este proyecto es una app de noticias que consume una api externa con StoreKit2 and Core ML para filtrar por palabras consideradas positivas y negativas"
+            }
+        };
+
+        function setLanguage(lang) {
+            $.each(translations[lang], function (key, value) {
+                $("[data-i18n='" + key + "']").text(value);
+            });
+        }
+
+        $('#en').click(function () {
+            setLanguage('en');
+        });
+
+        $('#es').click(function () {
+            setLanguage('es');
+        });
+
+        setLanguage('en');
+
+        $('video').each(function () {
+            this.play();
+        });
+    </script>
+</body>
+
+</html>
